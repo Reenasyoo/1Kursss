@@ -1,17 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class NewBehaviourScript : MonoBehaviour
+public class NewBehaviourScriptB : MonoBehaviour
 {
     // Accessor type / value type / value name / value
     public int a = 3; // Integer 1,2,3 -1,-2,-3
     public float b = 0f; // Float 1.01f, 6.9f, 13.37f, -1.1f
     private string c = "a"; // String "aaaaa", "suns", "hello world!"
     private bool d = false; // Boolean true / false
-    
     // + - * /
+
+    public InputField inputText;
     
+    public void PrintInputedText()
+    {
+        string output = inputText.text;
+        Debug.Log(output);
+    }
+
     // Accessor type / Return type / function name / function parameter/s / function body
     private void Start()
     {
@@ -49,6 +57,8 @@ public class NewBehaviourScript : MonoBehaviour
         int res = a * 2;
         print(res);
     }
+
+
 }
 /*
 -izveidot 2 fukcijas -(void) "Foo"  un 

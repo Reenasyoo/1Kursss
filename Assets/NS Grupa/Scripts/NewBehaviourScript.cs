@@ -22,7 +22,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void Start()
     {
-        print(Foo());
+        // print(Foo());
         float aab = a / ab;
         Debug.Log ( "AAB : " + aab.ToString("f2"));
 

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-public class NewBehaviourScript : MonoBehaviour
+
+public class NewBehaviourScriptA : MonoBehaviour
 {
     public int a = 0; // 1,2,3 -1,2,3 
     public int aaa = 2;
