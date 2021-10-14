@@ -32,17 +32,13 @@ public class GameManager : MonoBehaviour
         RefreshText();
     }
 
-    public void DownHealth()
+    public int DownHealth(int tempHealth)
     {
-        health--;
-
-        if( health <= 0 )
+        if( tempHealth <= 0 )
         {
-            health = 0;
+            tempHealth = 0;
         }
-
-        RefreshText();
-
+        return tempHealth;
     }
 
     public void RefreshText()
@@ -57,15 +53,23 @@ public class GameManager : MonoBehaviour
 
     public void Attack()
     {
-        bat.health -= Random.Range(0, attackStrenght);
+        int attack = Random.Range(0, attackStrenght +1);
+        bat.health -= attack;
+        bat.health = DownHealth(bat.health);
+
         GetDamage();
         RefreshText();
         RefreshBatText();
+
+        print(attack);
     }
 
     public void GetDamage()
     {
-        health -= Random.Range(0, bat.attackStrenght);
+        int attack = Random.Range(0, bat.attackStrenght +1);
+        health -= attack;
+        health = DownHealth(health);
+        print("Damage : " + attack);
     }
 
 
@@ -74,6 +78,18 @@ public class GameManager : MonoBehaviour
         int a = 0;
         int b = 1;
         int c = 2;
+
+        bool isTrue = true;
+
+        if(isTrue)
+        {
+
+        }
+
+        if(isTrue == false)
+        {
+
+        }
 
         if( a == b || b == c) // &&
         {
