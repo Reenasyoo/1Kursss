@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Monster
-{
-    public int health = 10;
-    public int attackStrenght = 2;
-}
+    {
+        public int health = 10;
+        public int attackStrenght = 2;
+    }
 
 public class GameManager : MonoBehaviour
 {   
@@ -71,8 +71,10 @@ public class GameManager : MonoBehaviour
         health = DownHealth(health);
         print("Damage : " + attack);
     }
+}
 
 
+/*
     void Test()
     {
         int a = 0;
@@ -108,4 +110,89 @@ public class GameManager : MonoBehaviour
             print("e");
         }
     }
-}
+
+
+
+
+    void Func1()
+    {
+        int a = 1;
+        int b = 2;
+
+        if( a == b)
+        {
+            print ("ir vienadi");
+        }
+        else
+        {
+            print ("nav vienadi");
+        }
+        
+    }
+
+    void Func2()
+    {
+        int a = 1;
+
+        if(a >= 0)
+        {
+            print("ir pozitivs");
+        }
+        else
+        {
+            print("negativs");
+        }
+    }
+
+    void Func3()
+    {
+        int a = 1;
+        int rem = a % 2;
+        if( 0 == rem )
+        {
+            print("para");
+        }
+        else
+        {
+            print("nepara");
+        }
+
+    }
+
+    void func4()
+    {
+        int a = 1;
+        int b = 3;
+        int c = 2;
+
+        if(a > b)
+        {
+            if( a > c )
+            {
+                print("a");
+            }
+        }
+        else if( b > c)
+        {
+            print("b");
+        }
+        else
+        {
+            print("c");
+        }
+
+
+        if(a > b && a > c)
+        {
+            print("a");
+        }
+        else if( b > c)
+        {
+            print("b");
+        }
+        else
+        {
+            print("c");
+        }
+    }
+*/
