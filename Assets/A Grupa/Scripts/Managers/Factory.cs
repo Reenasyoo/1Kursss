@@ -1,13 +1,33 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class Factory : MonoBehaviour
 {
+    public List<Transform> spawnLocations = new List<Transform>();
+
+    public GameObject enemyPrefab;
+    public GameObject playerObj;
+        
     private void Start()
     {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            spawnLocations.Add(transform.GetChild(i).transform);
+        }
+        
+        SpawnEnemy();
+        
         // IDefenceRobot defRob = new DefenceRobot("Deflecter");
         // IDefenceRobot bigDef = new BigDefenceRobot("Big Def");
         // defRob.Deflect();
         // bigDef.Deflect();
+    }
+
+    private void SpawnEnemy()
+    {
+        int randomLocation = Random.Range(0, spawnLocations.Count);
+        GameObject temp = Instantiate(enemyPrefab, spawnLocations[randomLocation].position, Quaternion.identity);
+        temp.GetComponent<RobotMono>().SetTarget(playerObj);
     }
 
 

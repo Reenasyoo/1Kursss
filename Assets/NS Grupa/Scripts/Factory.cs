@@ -7,12 +7,19 @@ namespace Ns_Grupa
     public class Factory : MonoBehaviour
     {
         public AttackRobot[] robots;
+
+        public List<Transform> spawnLocations = new List<Transform>();
         
         private void Start()
         {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                spawnLocations.Add(transform.GetChild(i).transform);
+            }
             
-            Rifle rifle1 = new Rifle();
-            rifle1.SetName("Rifle");
+            
+            // Rifle rifle1 = new Rifle();
+            // rifle1.SetName("Rifle");
 
             // Robot tempRobot = new Robot("first robot");
             // tempRobot.PrintName();
@@ -24,16 +31,13 @@ namespace Ns_Grupa
             // att.PrintName();
             // att.robotWeapon.Attack();
 
-            DefenceRobot robby = new DefenceRobot("Defo", rifle1);
-            AttackRobot atRob = new AttackRobot("Atter", rifle1);
-            Robot robi = new AttackRobot("attttt", rifle1);
-            
-            robby.Def();
-            atRob.Attack();
-            robi.PrintName();
-            
-            
-            
+            // DefenceRobot robby = new DefenceRobot("Defo", rifle1);
+            // AttackRobot atRob = new AttackRobot("Atter", rifle1);
+            // Robot robi = new AttackRobot("attttt", rifle1);
+            //
+            // robby.Def();
+            // atRob.Attack();
+            // robi.PrintName();
         }
     }
 }
