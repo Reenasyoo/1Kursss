@@ -299,10 +299,6 @@ public class NewBehaviourScript : MonoBehaviour
     }
 }
 
-// izveidot string funckiju kas atgriez vērtību - c
-
-// izveidot funkciju kas nomainītu c vērtību uz - suns - izmantojot parametru
-
 /*
 
     private float MyFunc3()
@@ -318,13 +314,4 @@ public class NewBehaviourScript : MonoBehaviour
         return true;
     } 
 
-*/
-
-/*
--izveidot 2 fukcijas -(void) "Foo"  un 
-    (int) "Bar" (int)
--Fucija "Bar" izdara saskaitisanu ar parametru 
-    un to atgriez - saskaita ar 3
--pielikt pie pogas "Foo" funkciju kas 
-    izsauc "Bar" funkciju
 */
