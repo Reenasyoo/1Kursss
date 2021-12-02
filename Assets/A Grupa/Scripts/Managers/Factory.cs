@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Factory : MonoBehaviour
 {
@@ -7,16 +9,22 @@ public class Factory : MonoBehaviour
 
     public GameObject enemyPrefab;
     public GameObject playerObj;
+    public Text counterText;
+
+    public int counter = 0;
         
     private void Start()
     {
+        counter = 0;
+        UpdateCounterText();
+        
         for (int i = 0; i < transform.childCount; i++)
         {
             spawnLocations.Add(transform.GetChild(i).transform);
         }
-        
-        SpawnEnemy();
-        
+
+        StartCoroutine(Spawn());
+
         // IDefenceRobot defRob = new DefenceRobot("Deflecter");
         // IDefenceRobot bigDef = new BigDefenceRobot("Big Def");
         // defRob.Deflect();
@@ -27,10 +35,11 @@ public class Factory : MonoBehaviour
     {
         int randomLocation = Random.Range(0, spawnLocations.Count);
         GameObject temp = Instantiate(enemyPrefab, spawnLocations[randomLocation].position, Quaternion.identity);
-        temp.GetComponent<RobotMono>().SetTarget(playerObj);
+        RobotMono script = temp.GetComponent<RobotMono>();
+        script.SetTarget(playerObj);
+        script.SetFactoryReference(this);
     }
-
-
+    
     public void CreateAttackers()
     {
         Rifle rifle = new Rifle();
@@ -47,5 +56,25 @@ public class Factory : MonoBehaviour
 
         attRob.Attack();
         bigRob.Attack();
+    }
+
+    IEnumerator Spawn()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5f);
+            SpawnEnemy();
+        }
+    }
+
+    public void UpdateCounter()
+    {
+        counter++;
+        UpdateCounterText();
+    }
+
+    private void UpdateCounterText()
+    {
+        counterText.text = $"Counter : {counter}";
     }
 }

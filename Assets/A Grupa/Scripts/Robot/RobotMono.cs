@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,14 +7,8 @@ public class RobotMono : MonoBehaviour
 {
     public GameObject target;
     public float moveSpeed = 10;
+    private Factory factory;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (target != null)
@@ -26,4 +21,20 @@ public class RobotMono : MonoBehaviour
     {
         target = targ;
     }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.CompareTag("Bullet"))
+        {
+            factory.UpdateCounter();
+            Destroy(gameObject);
+        }
+    }
+
+    public void SetFactoryReference(Factory fa)
+    {
+        factory = fa;
+    }
+
+
 }
